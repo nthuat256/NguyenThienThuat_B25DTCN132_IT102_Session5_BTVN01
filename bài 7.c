@@ -1,14 +1,19 @@
 #include <stdio.h>
-
 int main() {
-    int nam;
-    printf("Nhap nam: ");
-    scanf("%d", &nam);
-    if ((nam % 4 == 0 && nam % 100 != 0) || (nam % 400 == 0))
-        printf("Nam %d la nam nhuan\n", nam);
-    else
-        printf("Nam %d khong phai la nam nhuan\n", nam);
-
+    char a;
+    printf("Nhap mot ky tu: ");
+    scanf("%c", &a);
+    if (a >= 'a' && a <= 'z') {
+        a = a - 32;
+        printf("Chu hoa tuong ung: %c\n", a);
+    }
+    else if (a >= 'A' && a <= 'Z') {
+        a = a + 32;
+        printf("Chu thuong tuong ung: %c\n", a);
+    }
+    else {
+        printf("Khong phai chu cai.\n");
+    }
     return 0;
 }
 

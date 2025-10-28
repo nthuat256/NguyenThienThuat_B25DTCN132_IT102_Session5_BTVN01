@@ -1,25 +1,22 @@
 #include <stdio.h>
 int main() {
-    int chi_so_cu, chi_so_moi;
-    int so_dien;
-    long tien_dien = 0;
-    printf("Nhap chi so cu: ");
-    scanf("%d", &chi_so_cu);
-    printf("Nhap chi so moi: ");
-    scanf("%d", &chi_so_moi);
-    so_dien = chi_so_moi - chi_so_cu;
-    if (so_dien <= 50)
-        tien_dien = so_dien * 10000;
-    else if (so_dien <= 100)
-        tien_dien = 50 * 10000 + (so_dien - 50) * 15000;
-    else if (so_dien <= 150)
-        tien_dien = 50 * 10000 + 50 * 15000 + (so_dien - 100) * 20000;
-    else if (so_dien <= 200)
-        tien_dien = 50 * 10000 + 50 * 15000 + 50 * 20000 + (so_dien - 150) * 25000;
-    else
-        tien_dien = 50 * 10000 + 50 * 15000 + 50 * 20000 + 50 * 25000 + (so_dien - 200) * 30000;
-    printf("So dien tieu thu: %d kWh\n", so_dien);
-    printf("Tien dien phai tra: %ld VND\n", tien_dien);
+    float tuoi, giaVe = 20000, soTienPhaiTra;
+    printf("Nhap do tuoi: ");
+    scanf("%f", &tuoi);
+    if (tuoi > 0 && tuoi < 6) {
+        soTienPhaiTra = giaVe * (1 - 1.0);
+    } else if (tuoi >= 6 && tuoi < 19) {
+        soTienPhaiTra = giaVe * (1 - 0.5);
+    } else if (tuoi >= 19 && tuoi <= 60) {
+        soTienPhaiTra = giaVe;
+    } else if (tuoi > 60) {
+        soTienPhaiTra = giaVe * (1 - 0.3);
+    } else {
+        printf("So tuoi khong hop le!\n");
+        return 1;
+    }
+    printf("Gia ve goc: %.0f VND\n", giaVe);
+    printf("So tien ve phai tra: %.0f VND\n", soTienPhaiTra);
     return 0;
 }
 

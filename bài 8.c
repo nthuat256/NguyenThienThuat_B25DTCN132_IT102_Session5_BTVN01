@@ -1,17 +1,22 @@
 #include <stdio.h>
 int main() {
-    int a, b, c;
-    printf("Nhap canh a: ");
-    scanf("%d", &a);
-    printf("Nhap canh b: ");
-    scanf("%d", &b);
-    printf("Nhap canh c: ");
-    scanf("%d", &c);
-    if (a + b > c && a + c > b && b + c > a)
-        printf("La 3 canh tam giac\n");
-    else
-        printf("Khong phai 3 canh tam giac\n");
-
+    float m3, tien;
+    printf("Nhap so m3 nuoc tieu thu: ");
+    scanf("%f", &m3);
+    if (m3 < 0) {
+        printf("So lieu khong hop le");
+    }else if (m3 <= 10) {
+        tien = m3 * 6000;
+    }else if (m3 <= 20) {
+        tien = 10 * 6000 + (m3 - 10) * 7000;
+    }else if (m3 <= 30) {
+        tien = 10 * 6000 + 10 * 7000 + (m3 - 20) * 8500;
+    }else {
+        tien = 10 * 6000 + 10 * 7000 + 10 * 8500 + (m3 - 30) * 10000;
+    }
+    if (m3 >= 0) {
+      printf("So tien phai tra: %.0f VND", tien);
+	}
     return 0;
 }
 

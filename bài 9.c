@@ -1,40 +1,29 @@
 #include <stdio.h>
-
 int main() {
-    int ngay, thang, nam;
-    int hop_le = 1;
-    printf("Nhap ngay: ");
-    scanf("%d", &ngay);
-    printf("Nhap thang: ");
-    scanf("%d", &thang);
-    printf("Nhap nam: ");
-    scanf("%d", &nam);
-    if (thang < 1 || thang > 12)
-        hop_le = 0;
-    else {
-        int so_ngay_trong_thang;
-        switch (thang) {
-            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-                so_ngay_trong_thang = 31;
-                break;
-            case 4: case 6: case 9: case 11:
-                so_ngay_trong_thang = 30;
-                break;
-            case 2:
-                if ((nam % 4 == 0 && nam % 100 != 0) || (nam % 400 == 0))
-                    so_ngay_trong_thang = 29;
-                else
-                    so_ngay_trong_thang = 28;
-                break;
-        }
-        if (ngay < 1 || ngay > so_ngay_trong_thang)
-            hop_le = 0;
+    float heSo, luong, phuCap, thuong = 0;
+    int ngayCong, chucVu;
+    printf("Nhap he so luong: ");
+    scanf("%f", &heSo);
+    printf("Nhap so ngay cong: ");
+    scanf("%d", &ngayCong);
+    printf("Chon chuc vu:\n");
+    printf("1 - Nhan vien\n");
+    printf("2 - To truong\n");
+    printf("3 - Quan ly\n");
+    printf("Nhap lua chon (1,2,3): ");
+    scanf("%d", &chucVu);
+    switch (chucVu) {
+        case 1: phuCap = 500000; break;
+        case 2: phuCap = 1000000; break;
+        case 3: phuCap = 2000000; break;
+        default:
+            printf("Chuc vu khong hop le!\n");
+            return 0;
     }
-    if (hop_le)
-        printf("Ngay thang nam hop le\n");
-    else
-        printf("Ngay thang nam khong hop le\n");
-
+    if (ngayCong > 26)
+        thuong = (ngayCong - 26) * 200000;
+    luong = ngayCong * 160000 * heSo + phuCap + thuong;
+    printf("Luong nhan duoc: %.0f VND\n", luong);
     return 0;
 }
 

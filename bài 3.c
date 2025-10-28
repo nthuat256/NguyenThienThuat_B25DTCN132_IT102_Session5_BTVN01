@@ -1,15 +1,18 @@
 #include <stdio.h>
 int main() {
 	int n;
+	printf("nhap so diem trung binh: ",n);
 	scanf("%d",&n);
-	if(n % 3 ==0&&n%5==0) {
-		printf("so nguyen chia het cho 3 va chia het cho 5\n");
-	}else if(n % 3 == 0){
-		printf("so nguyen chia het cho 3\n");
-	} else if(n % 5 == 0) {
-		printf("so nguyen chia het cho 5\n");
+	if (n>=8&&n<=10) {
+		printf("hoc luc gioi");
+	}else if(n>=6.5&&n<8) {
+		printf("hoc luc kha");
+	}else if(n>=5&&n<6.5) {
+		printf("hoc luc trung binh");
+	}else if(n<5&&n>=0) {
+		printf("hoc luc yeu");
 	}else {
-		printf("so nguyen khong chia het cho 3 va 5\n");
+		printf ("khong hop le");
 	}
 	return 0;
 }
