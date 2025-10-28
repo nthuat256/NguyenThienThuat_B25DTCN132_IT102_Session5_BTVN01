@@ -1,3 +1,4 @@
+#include <stdio.h>
 int main() {
     float kwh, tienBacThang, phuPhi, tongTien;
     int loaiHo;
@@ -32,5 +33,6 @@ int main() {
     printf("Tien dien phai tra: %.0f VND\n", tongTien);
     return 0;
 }
+
 
 
